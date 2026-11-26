@@ -11,4 +11,4 @@ Installs over WhatsKeep 1.0.0 and keeps everything you have saved. Android 10 or
 
 WhatsKeep is for keeping notifications on your own phone. Do not install it on anyone else's phone without their permission – see https://customgpter.github.io/whatskeep/terms.html#law
 
-SHA-256 (WhatsKeep.apk): dd46a50e158ac832b6ae986220408b9614f763cb5c3ccc1c1992eeeb30296dbd
+SHA-256 (WhatsKeep.apk): 78d04bc5db436cce581911e1fd37add721c89aeadd2d953992bbf9d5c2b92bf2
