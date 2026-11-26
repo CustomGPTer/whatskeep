@@ -1,0 +1,26 @@
+# Adds the files held on the dist branch to a release that already exists, and replaces its notes.
+name: Attach to release
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version whose release gets the files, such as 1.1
+        required: true
+permissions:
+  contents: write
+jobs:
+  attach:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dist
+      - name: Check the files
+        run: sha256sum -c SHA256SUMS
+      - name: Attach the files and update the notes
+        run: |
+          files=$(awk '{print $2}' SHA256SUMS)
+          gh release upload "v${{ inputs.version }}" $files --clobber
+          gh release edit "v${{ inputs.version }}" --notes-file NOTES.md
+        env:
+          GH_TOKEN: ${{ github.token }}
